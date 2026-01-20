@@ -1,0 +1,26 @@
+{
+  "id": "es",
+  "label": "Espanol",
+  "categories": {
+    "allergies": [
+      { "id": 1, "label": "Cacahuetes" },
+      { "id": 2, "label": "Mariscos" }
+    ],
+    "foodRestrictions": [
+      { "id": 10, "label": "Vegetariano" },
+      { "id": 11, "label": "Vegano" }
+    ],
+    "medicineAllergies": [
+      { "id": 20, "label": "Penicilina" },
+      { "id": 21, "label": "Ibuprofeno" }
+    ],
+    "medicalConditions": [
+      { "id": 30, "label": "Diabetes" },
+      { "id": 31, "label": "Asma" }
+    ],
+    "phobias": [
+      { "id": 40, "label": "Agujas" },
+      { "id": 41, "label": "Espacios cerrados" }
+    ]
+  }
+}

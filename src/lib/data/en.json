@@ -1,0 +1,26 @@
+{
+  "id": "en",
+  "label": "English",
+  "categories": {
+    "allergies": [
+      { "id": 1, "label": "Peanuts" },
+      { "id": 2, "label": "Shellfish" }
+    ],
+    "foodRestrictions": [
+      { "id": 10, "label": "Vegetarian" },
+      { "id": 11, "label": "Vegan" }
+    ],
+    "medicineAllergies": [
+      { "id": 20, "label": "Penicillin" },
+      { "id": 21, "label": "Ibuprofen" }
+    ],
+    "medicalConditions": [
+      { "id": 30, "label": "Diabetes" },
+      { "id": 31, "label": "Asthma" }
+    ],
+    "phobias": [
+      { "id": 40, "label": "Needles" },
+      { "id": 41, "label": "Closed spaces" }
+    ]
+  }
+}

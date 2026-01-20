@@ -1,0 +1,26 @@
+{
+  "id": "zh-Hant",
+  "label": "\u7e41\u9ad4\u4e2d\u6587",
+  "categories": {
+    "allergies": [
+      { "id": 1, "label": "\u82b1\u751f" },
+      { "id": 2, "label": "\u8c9d\u985e" }
+    ],
+    "foodRestrictions": [
+      { "id": 10, "label": "\u7d20\u98df" },
+      { "id": 11, "label": "\u5168\u7d20" }
+    ],
+    "medicineAllergies": [
+      { "id": 20, "label": "\u9752\u9ef4\u7d20" },
+      { "id": 21, "label": "\u5e03\u6d1b\u82ac" }
+    ],
+    "medicalConditions": [
+      { "id": 30, "label": "\u7cd6\u5c3f\u75c5" },
+      { "id": 31, "label": "\u54ee\u5598" }
+    ],
+    "phobias": [
+      { "id": 40, "label": "\u91dd\u982d" },
+      { "id": 41, "label": "\u5bc6\u9589\u7a7a\u9593" }
+    ]
+  }
+}

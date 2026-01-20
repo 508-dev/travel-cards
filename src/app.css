@@ -1,0 +1,21 @@
+:root {
+  color-scheme: light;
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f2ea;
+  color: #1d1b16;
+}
+
+#app {
+  min-height: 100vh;
+}

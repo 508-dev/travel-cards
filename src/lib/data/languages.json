@@ -1,0 +1,6 @@
+[
+  { "id": "en", "label": "English" },
+  { "id": "es", "label": "Spanish" },
+  { "id": "zh-Hant", "label": "Mandarin Chinese (Traditional)" },
+  { "id": "zh-Hans", "label": "Mandarin Chinese (Simplified)" }
+]

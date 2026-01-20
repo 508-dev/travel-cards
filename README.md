@@ -1,40 +1,28 @@
-## Travel Cards Site
+## Travel Cards
 
-Please see designs in the wiki: https://github.com/508-dev/travel-cards/wiki/Designs
+Travel Cards is a Svelte + TypeScript single-page app that lets travelers build printable cards containing translated health or dietary information.
 
-TODOs are tracked under the issues tab: https://github.com/508-dev/travel-cards/issues
+### Tech
 
-A better way to look at issues might be the project tab, which functions like a kanban board: https://github.com/orgs/508-dev/projects/5
+- Svelte + TypeScript SPA
+- Vite for bundling, Bun for package management and scripts
+- Static build output in `dist`
+- Language data stored in JSON under `src/lib/data`
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+### Development
 
 ```bash
-yarn dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run build
+bun run preview
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Data Model
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-### Deployment
-
-The project is deployed and hosted via Cloudflare Pages.
-
-Any pushes to any branch will create a QA deployment on a custom cloudflare-provided URL.
-
-Any pushes to `main` branch will automatically trigger a prod deploy at travel-cards.pages.dev.
+Each language has a JSON file keyed by stable numeric IDs so query parameters can re-hydrate a card without losing translation fidelity.
