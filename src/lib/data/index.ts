@@ -5,7 +5,9 @@ import zhHans from "./zh-Hans.json";
 import zhHant from "./zh-Hant.json";
 import type { LanguageData, LanguageSummary, LanguageCode } from "../types";
 
-export const languageList = languages as LanguageSummary[];
+const languageListData = languages as LanguageSummary[];
+
+export const languageList: LanguageSummary[] = languageListData;
 
 export const languageDataById: Record<LanguageCode, LanguageData> = {
   en: en as LanguageData,
