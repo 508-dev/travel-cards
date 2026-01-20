@@ -2,25 +2,40 @@
   "id": "en",
   "label": "English",
   "categories": {
-    "allergies": [
-      { "id": 1, "label": "Peanuts" },
-      { "id": 2, "label": "Shellfish" }
-    ],
-    "foodRestrictions": [
-      { "id": 10, "label": "Vegetarian" },
-      { "id": 11, "label": "Vegan" }
-    ],
-    "medicineAllergies": [
-      { "id": 20, "label": "Penicillin" },
-      { "id": 21, "label": "Ibuprofen" }
-    ],
-    "medicalConditions": [
-      { "id": 30, "label": "Diabetes" },
-      { "id": 31, "label": "Asthma" }
-    ],
-    "phobias": [
-      { "id": 40, "label": "Needles" },
-      { "id": 41, "label": "Closed spaces" }
-    ]
+    "allergies": {
+      "label": "Food allergies",
+      "options": [
+        { "id": 1, "label": "Peanuts" },
+        { "id": 2, "label": "Shellfish" }
+      ]
+    },
+    "foodRestrictions": {
+      "label": "Food restrictions",
+      "options": [
+        { "id": 10, "label": "Vegetarian" },
+        { "id": 11, "label": "Vegan" }
+      ]
+    },
+    "medicineAllergies": {
+      "label": "Medicine allergies",
+      "options": [
+        { "id": 20, "label": "Penicillin" },
+        { "id": 21, "label": "Ibuprofen" }
+      ]
+    },
+    "medicalConditions": {
+      "label": "Medical conditions",
+      "options": [
+        { "id": 30, "label": "Diabetes" },
+        { "id": 31, "label": "Asthma" }
+      ]
+    },
+    "phobias": {
+      "label": "Phobias",
+      "options": [
+        { "id": 40, "label": "Needles" },
+        { "id": 41, "label": "Closed spaces" }
+      ]
+    }
   }
 }

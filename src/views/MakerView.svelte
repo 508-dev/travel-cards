@@ -1,49 +1,40 @@
 <script lang="ts">
-  import { languageDataById } from "../lib/data";
+  import { languageList, languageDataById } from "../lib/data";
   import { buildSearchFromSelections, defaultSelectionState } from "../lib/query";
   import { getPathForRoute } from "../lib/routes";
   import type { CategoryKey, LanguageCode, OptionEntry, SelectionState } from "../lib/types";
 
-  const englishData = languageDataById.en as {
-    categories: Record<CategoryKey, OptionEntry[]>;
+  type LanguageSummary = { id: LanguageCode; label: string };
+
+  const englishData = languageDataById.en as unknown as {
+    categories: Record<CategoryKey, { label: string; options: OptionEntry[] }>;
   };
 
-  type LanguageOption = { id: LanguageCode; label: string };
-
-  const languageOptions: LanguageOption[] = [
+  const languageOptions: LanguageSummary[] = [
     { id: "en", label: "English" },
     { id: "es", label: "Spanish" },
     { id: "zh-Hant", label: "Mandarin Chinese (Traditional)" },
     { id: "zh-Hans", label: "Mandarin Chinese (Simplified)" }
   ];
-  const sourceOptions: LanguageOption[] = languageOptions.filter((language) => language.id === "en");
-  const targetOptions: LanguageOption[] = languageOptions.filter((language) => language.id !== "en");
+  const sourceOptions = languageOptions.filter((language) => language.id === "en");
+  const targetOptions = languageOptions.filter((language) => language.id !== "en");
 
-  type CategoryItem = { key: CategoryKey; label: string };
+  type CategoryEntry = { key: CategoryKey; label: string };
 
-  const categoryList: CategoryItem[] = [
-    { key: "allergies", label: "Food allergies" },
-    { key: "foodRestrictions", label: "Food restrictions" },
-    { key: "medicineAllergies", label: "Medicine allergies" },
-    { key: "medicalConditions", label: "Medical conditions" },
-    { key: "phobias", label: "Phobias" }
-  ];
+  const categoryEntries: CategoryEntry[] = (Object.keys(englishData.categories) as CategoryKey[]).map(
+    (key) => ({
+      key,
+      label: englishData.categories[key].label
+    })
+  );
+
+  const categoryKeys = categoryEntries.map((entry) => entry.key);
 
   let selections: SelectionState = { ...defaultSelectionState };
-  let enabledCategories: Record<CategoryKey, boolean> = {
-    allergies: false,
-    foodRestrictions: false,
-    medicineAllergies: false,
-    medicalConditions: false,
-    phobias: false
-  };
-  let inputs: Record<CategoryKey, string> = {
-    allergies: "",
-    foodRestrictions: "",
-    medicineAllergies: "",
-    medicalConditions: "",
-    phobias: ""
-  };
+  let enabledCategories = new Set<CategoryKey>();
+  let inputs: Record<CategoryKey, string> = Object.fromEntries(
+    categoryKeys.map((key) => [key, ""])
+  ) as Record<CategoryKey, string>;
 
   const updateLanguage = (field: "sourceLanguage" | "targetLanguage", value: string) => {
     selections = {
@@ -53,7 +44,14 @@
   };
 
   const toggleCategory = (key: CategoryKey, checked: boolean) => {
-    enabledCategories = { ...enabledCategories, [key]: checked };
+    const next = new Set(enabledCategories);
+    if (checked) {
+      next.add(key);
+    } else {
+      next.delete(key);
+    }
+
+    enabledCategories = next;
   };
 
   const handleCategoryToggle = (key: CategoryKey, event: Event) => {
@@ -65,13 +63,17 @@
     toggleCategory(key, target.checked);
   };
 
+  const getCategoryOptions = (key: CategoryKey): OptionEntry[] => {
+    return englishData.categories[key].options;
+  };
+
   const getAvailableOptions = (key: CategoryKey): OptionEntry[] => {
     const selected = new Set(selections[key]);
-    return englishData.categories[key].filter((entry) => !selected.has(entry.id));
+    return getCategoryOptions(key).filter((entry) => !selected.has(entry.id));
   };
 
   const getLabel = (key: CategoryKey, id: number) => {
-    return englishData.categories[key].find((entry) => entry.id === id)?.label ?? "Unknown";
+    return getCategoryOptions(key).find((entry) => entry.id === id)?.label ?? "Unknown";
   };
 
   const addSelection = (key: CategoryKey) => {
@@ -123,8 +125,8 @@
   $: readyForDetails = Boolean(selections.sourceLanguage && selections.targetLanguage);
   $: canGenerate =
     readyForDetails &&
-    categoryList.some(
-      (category) => selections[category.key].length > 0 || enabledCategories[category.key]
+    categoryEntries.some(
+      (category) => selections[category.key].length > 0 || enabledCategories.has(category.key)
     );
 </script>
 
@@ -148,9 +150,11 @@
         >
           <option value="">Select language</option>
           {#each sourceOptions as language}
-            <option value={language.id} selected={language.id === selections.sourceLanguage}>
-              {language.label}
-            </option>
+            {#if language}
+              <option value={language.id} selected={language.id === selections.sourceLanguage}>
+                {language.label}
+              </option>
+            {/if}
           {/each}
         </select>
       </label>
@@ -175,11 +179,11 @@
       <div class="maker__section">
         <h2 class="maker__section-title">I need to communicate</h2>
         <div class="maker__checks">
-          {#each categoryList as categoryItem (categoryItem.key)}
+          {#each categoryEntries as categoryItem (categoryItem.key)}
             <label class="maker__check">
               <input
                 type="checkbox"
-                checked={enabledCategories[categoryItem.key]}
+                checked={enabledCategories.has(categoryItem.key)}
                 on:change={(event) => handleCategoryToggle(categoryItem.key, event)}
               />
               <span>{categoryItem.label}</span>
@@ -188,8 +192,8 @@
         </div>
       </div>
 
-      {#each categoryList as categoryItem}
-        {#if enabledCategories[categoryItem.key]}
+      {#each categoryEntries as categoryItem}
+        {#if enabledCategories.has(categoryItem.key)}
           <div class="maker__row">
             <label class="row__label" for={`input-${categoryItem.key}`}>{categoryItem.label}</label>
             <div class="row__control">

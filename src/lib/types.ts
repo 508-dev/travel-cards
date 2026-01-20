@@ -12,6 +12,11 @@ export type OptionEntry = {
   label: string;
 };
 
+export type CategoryData = {
+  label: string;
+  options: OptionEntry[];
+};
+
 export type LanguageSummary = {
   id: LanguageCode;
   label: string;
@@ -20,7 +25,7 @@ export type LanguageSummary = {
 export type LanguageData = {
   id: LanguageCode;
   label: string;
-  categories: Record<CategoryKey, OptionEntry[]>;
+  categories: Record<CategoryKey, CategoryData>;
 };
 
 export type SelectionState = {

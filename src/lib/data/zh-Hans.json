@@ -2,25 +2,41 @@
   "id": "zh-Hans",
   "label": "\u7b80\u4f53\u4e2d\u6587",
   "categories": {
-    "allergies": [
-      { "id": 1, "label": "\u82b1\u751f" },
-      { "id": 2, "label": "\u8d1d\u7c7b" }
-    ],
-    "foodRestrictions": [
-      { "id": 10, "label": "\u7d20\u98df" },
-      { "id": 11, "label": "\u5168\u7d20" }
-    ],
-    "medicineAllergies": [
-      { "id": 20, "label": "\u9752\u9709\u7d20" },
-      { "id": 21, "label": "\u5e03\u6d1b\u82ac" }
-    ],
-    "medicalConditions": [
-      { "id": 30, "label": "\u7cd6\u5c3f\u75c5" },
-      { "id": 31, "label": "\u54ee\u5598" }
-    ],
-    "phobias": [
-      { "id": 40, "label": "\u9488\u5934" },
-      { "id": 41, "label": "\u5bc6\u95ed\u7a7a\u95f4" }
-    ]
+    "allergies": {
+      "label": "Food allergies",
+      "options": [
+        { "id": 1, "label": "花生" },
+        { "id": 2, "label": "贝类" }
+      ]
+    },
+    "foodRestrictions": {
+      "label": "Food restrictions",
+      "options": [
+        { "id": 10, "label": "素食" },
+        { "id": 11, "label": "全素" }
+      ]
+    },
+    "medicineAllergies": {
+      "label": "Medicine allergies",
+      "options": [
+        { "id": 20, "label": "青霉素" },
+        { "id": 21, "label": "布洛芬" }
+      ]
+    },
+    "medicalConditions": {
+      "label": "Medical conditions",
+      "options": [
+        { "id": 30, "label": "糖尿病" },
+        { "id": 31, "label": "哮喘" }
+      ]
+    },
+    "phobias": {
+      "label": "Phobias",
+      "options": [
+        { "id": 40, "label": "针头" },
+        { "id": 41, "label": "密闭空间" }
+      ]
+    }
   }
+
 }
