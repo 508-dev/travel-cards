@@ -35,6 +35,9 @@
   let inputs: Record<CategoryKey, string> = Object.fromEntries(
     categoryKeys.map((key) => [key, ""])
   ) as Record<CategoryKey, string>;
+  let showOptions: Record<CategoryKey, boolean> = Object.fromEntries(
+    categoryKeys.map((key) => [key, false])
+  ) as Record<CategoryKey, boolean>;
 
   const updateLanguage = (field: "sourceLanguage" | "targetLanguage", value: string) => {
     selections = {
@@ -76,6 +79,19 @@
     return getCategoryOptions(key).find((entry) => entry.id === id)?.label ?? "Unknown";
   };
 
+  const addSelectionFromOption = (key: CategoryKey, option: OptionEntry) => {
+    if (selections[key].includes(option.id)) {
+      inputs = { ...inputs, [key]: "" };
+      return;
+    }
+
+    selections = {
+      ...selections,
+      [key]: [...selections[key], option.id]
+    };
+    inputs = { ...inputs, [key]: "" };
+  };
+
   const addSelection = (key: CategoryKey) => {
     const rawValue = inputs[key].trim();
     if (!rawValue) {
@@ -90,16 +106,7 @@
       return;
     }
 
-    if (selections[key].includes(match.id)) {
-      inputs = { ...inputs, [key]: "" };
-      return;
-    }
-
-    selections = {
-      ...selections,
-      [key]: [...selections[key], match.id]
-    };
-    inputs = { ...inputs, [key]: "" };
+    addSelectionFromOption(key, match);
   };
 
   const removeSelection = (key: CategoryKey, id: number) => {
@@ -205,12 +212,25 @@
                 list={`list-${categoryItem.key}`}
                 bind:value={inputs[categoryItem.key]}
                 on:change={() => addSelection(categoryItem.key)}
+                on:focus={() => (showOptions = { ...showOptions, [categoryItem.key]: true })}
+                on:blur={() => (showOptions = { ...showOptions, [categoryItem.key]: false })}
               />
-              <datalist id={`list-${categoryItem.key}`}>
-                {#each getAvailableOptions(categoryItem.key) as option}
-                  <option value={option.label} />
-                {/each}
-              </datalist>
+              {#if showOptions[categoryItem.key]}
+                <div class="row__options" role="listbox">
+                  {#each getAvailableOptions(categoryItem.key) as option}
+                    <button
+                      type="button"
+                      class="row__option"
+                      on:mousedown|preventDefault={() =>
+                        addSelectionFromOption(categoryItem.key, option)
+                      }
+                      on:click={() => addSelectionFromOption(categoryItem.key, option)}
+                    >
+                      {option.label}
+                    </button>
+                  {/each}
+                </div>
+              {/if}
             </div>
             <div class="row__selected">
               {#if selections[categoryItem.key].length === 0}
@@ -348,6 +368,7 @@
   .row__control {
     display: grid;
     gap: 0.5rem;
+    position: relative;
   }
 
   .row__input {
@@ -356,6 +377,39 @@
     border: 1px solid #ccbda5;
     background: #fffdf9;
     font-size: 1rem;
+  }
+
+  .row__options {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background: #fffdf9;
+    border-radius: 12px;
+    border: 1px solid #ccbda5;
+    box-shadow: 0 14px 30px rgba(29, 27, 22, 0.12);
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 0.35rem;
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .row__option {
+    border: none;
+    background: transparent;
+    padding: 0.6rem 0.7rem;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+
+  .row__option:hover,
+  .row__option:focus {
+    background: #f0e2cc;
+    outline: none;
   }
 
   .row__selected {
