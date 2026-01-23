@@ -5,7 +5,7 @@ import preprocess from "svelte-preprocess";
 export default defineConfig({
   plugins: [
     svelte({
-      preprocess: preprocess()
-    })
-  ]
+      preprocess: preprocess(),
+    }),
+  ],
 });

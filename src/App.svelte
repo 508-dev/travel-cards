@@ -4,7 +4,8 @@
   import CardView from "./views/CardView.svelte";
   import { getRouteFromPath, type AppRoute } from "./lib/routes";
 
-  const initialPath = typeof window === "undefined" ? "/" : window.location.pathname;
+  const initialPath =
+    typeof window === "undefined" ? "/" : window.location.pathname;
   let route: AppRoute = getRouteFromPath(initialPath);
 
   const syncRoute = () => {

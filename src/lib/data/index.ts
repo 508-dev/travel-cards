@@ -13,5 +13,5 @@ export const languageDataById: Record<LanguageCode, LanguageData> = {
   en: en as LanguageData,
   es: es as LanguageData,
   "zh-Hant": zhHant as LanguageData,
-  "zh-Hans": zhHans as LanguageData
+  "zh-Hans": zhHans as LanguageData,
 };

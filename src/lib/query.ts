@@ -7,11 +7,16 @@ export const defaultSelectionState: SelectionState = {
   foodRestrictions: [],
   medicineAllergies: [],
   medicalConditions: [],
-  phobias: []
+  phobias: [],
 };
 
 const parseLanguage = (value: string | null): LanguageCode | null => {
-  if (value === "en" || value === "es" || value === "zh-Hant" || value === "zh-Hans") {
+  if (
+    value === "en" ||
+    value === "es" ||
+    value === "zh-Hant" ||
+    value === "zh-Hans"
+  ) {
     return value;
   }
 
@@ -40,11 +45,13 @@ export const getSelectionsFromSearch = (search: string): SelectionState => {
     foodRestrictions: parseNumberArray(params, "foodRestrictions"),
     medicineAllergies: parseNumberArray(params, "medicineAllergies"),
     medicalConditions: parseNumberArray(params, "medicalConditions"),
-    phobias: parseNumberArray(params, "phobias")
+    phobias: parseNumberArray(params, "phobias"),
   };
 };
 
-export const buildSearchFromSelections = (selections: SelectionState): string => {
+export const buildSearchFromSelections = (
+  selections: SelectionState,
+): string => {
   const params = new URLSearchParams();
 
   if (selections.sourceLanguage) {

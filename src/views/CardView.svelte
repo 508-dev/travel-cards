@@ -2,19 +2,28 @@
   import { onMount } from "svelte";
   import { getSelectionsFromSearch, defaultSelectionState } from "../lib/query";
   import { languageDataById } from "../lib/data";
-  import type { CategoryKey, LanguageData, OptionEntry, SelectionState } from "../lib/types";
+  import type {
+    CategoryKey,
+    LanguageData,
+    OptionEntry,
+    SelectionState,
+  } from "../lib/types";
 
   type CategoryData = { label: string; options: OptionEntry[] };
   type CategoryMap = Record<CategoryKey, CategoryData>;
   type LanguageDataShape = LanguageData & { categories: CategoryMap };
-  type CardSection = { key: CategoryKey; label: string; options: OptionEntry[] };
+  type CardSection = {
+    key: CategoryKey;
+    label: string;
+    options: OptionEntry[];
+  };
 
   const categoryOrder: CategoryKey[] = [
     "allergies",
     "foodRestrictions",
     "medicineAllergies",
     "medicalConditions",
-    "phobias"
+    "phobias",
   ];
 
   let selections: SelectionState = { ...defaultSelectionState };
@@ -34,7 +43,7 @@
   });
 
   const getLanguageData = (
-    language: SelectionState["targetLanguage"]
+    language: SelectionState["targetLanguage"],
   ): LanguageDataShape | null => {
     if (!language) {
       return null;
@@ -46,7 +55,7 @@
   const getSelectedOptions = (
     data: LanguageDataShape,
     key: CategoryKey,
-    selected: number[]
+    selected: number[],
   ): OptionEntry[] => {
     const options = data.categories[key].options;
     const selectedSet = new Set(selected);
@@ -59,7 +68,7 @@
         .map((key) => ({
           key,
           label: languageData.categories[key].label,
-          options: getSelectedOptions(languageData, key, selections[key])
+          options: getSelectedOptions(languageData, key, selections[key]),
         }))
         .filter((section) => section.options.length > 0)
     : [];
@@ -77,9 +86,13 @@
   <div class="card-view__canvas">
     <div class="card-view__card">
       {#if !languageData}
-        <p class="card-view__card-title">Select a target language to render a card.</p>
+        <p class="card-view__card-title">
+          Select a target language to render a card.
+        </p>
       {:else if sections.length === 0}
-        <p class="card-view__card-title">No selections were provided in the URL.</p>
+        <p class="card-view__card-title">
+          No selections were provided in the URL.
+        </p>
       {:else}
         <div class="card-view__content">
           {#each sections as section (section.key)}
@@ -150,25 +163,23 @@
     margin: 0 0 0.5rem 0;
     font-size: 1.5rem;
   }
-.card-view__section {
-  margin-bottom: 1.5rem;
-}
-.card-view__chip {
-  border: 1px solid black;
+  .card-view__section {
+    margin-bottom: 1.5rem;
+  }
+  .card-view__chip {
+    border: 1px solid black;
     border-radius: 3px;
     margin: 6px 12px;
     padding: 6px 8px;
     font-size: 1.2rem;
-
-}
+  }
   .card-view__card-title {
     margin: 0;
     color: #7a6a50;
   }
-@media print {
+  @media print {
     .no-print {
-        display: none !important;
+      display: none !important;
     }
-}
-
+  }
 </style>

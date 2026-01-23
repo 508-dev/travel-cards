@@ -1,8 +1,16 @@
 <script lang="ts">
   import { languageList, languageDataById } from "../lib/data";
-  import { buildSearchFromSelections, defaultSelectionState } from "../lib/query";
+  import {
+    buildSearchFromSelections,
+    defaultSelectionState,
+  } from "../lib/query";
   import { getPathForRoute } from "../lib/routes";
-  import type { CategoryKey, LanguageCode, OptionEntry, SelectionState } from "../lib/types";
+  import type {
+    CategoryKey,
+    LanguageCode,
+    OptionEntry,
+    SelectionState,
+  } from "../lib/types";
 
   type LanguageSummary = { id: LanguageCode; label: string };
 
@@ -14,35 +22,42 @@
     { id: "en", label: "English" },
     { id: "es", label: "Spanish" },
     { id: "zh-Hant", label: "Mandarin Chinese (Traditional)" },
-    { id: "zh-Hans", label: "Mandarin Chinese (Simplified)" }
+    { id: "zh-Hans", label: "Mandarin Chinese (Simplified)" },
   ];
-  const sourceOptions = languageOptions.filter((language) => language.id === "en");
-  const targetOptions = languageOptions.filter((language) => language.id !== "en");
+  const sourceOptions = languageOptions.filter(
+    (language) => language.id === "en",
+  );
+  const targetOptions = languageOptions.filter(
+    (language) => language.id !== "en",
+  );
 
   type CategoryEntry = { key: CategoryKey; label: string };
 
-  const categoryEntries: CategoryEntry[] = (Object.keys(englishData.categories) as CategoryKey[]).map(
-    (key) => ({
-      key,
-      label: englishData.categories[key].label
-    })
-  );
+  const categoryEntries: CategoryEntry[] = (
+    Object.keys(englishData.categories) as CategoryKey[]
+  ).map((key) => ({
+    key,
+    label: englishData.categories[key].label,
+  }));
 
   const categoryKeys = categoryEntries.map((entry) => entry.key);
 
   let selections: SelectionState = { ...defaultSelectionState };
   let enabledCategories = new Set<CategoryKey>();
   let inputs: Record<CategoryKey, string> = Object.fromEntries(
-    categoryKeys.map((key) => [key, ""])
+    categoryKeys.map((key) => [key, ""]),
   ) as Record<CategoryKey, string>;
   let showOptions: Record<CategoryKey, boolean> = Object.fromEntries(
-    categoryKeys.map((key) => [key, false])
+    categoryKeys.map((key) => [key, false]),
   ) as Record<CategoryKey, boolean>;
 
-  const updateLanguage = (field: "sourceLanguage" | "targetLanguage", value: string) => {
+  const updateLanguage = (
+    field: "sourceLanguage" | "targetLanguage",
+    value: string,
+  ) => {
     selections = {
       ...selections,
-      [field]: value ? (value as LanguageCode) : null
+      [field]: value ? (value as LanguageCode) : null,
     };
   };
 
@@ -76,7 +91,10 @@
   };
 
   const getLabel = (key: CategoryKey, id: number) => {
-    return getCategoryOptions(key).find((entry) => entry.id === id)?.label ?? "Unknown";
+    return (
+      getCategoryOptions(key).find((entry) => entry.id === id)?.label ??
+      "Unknown"
+    );
   };
 
   const addSelectionFromOption = (key: CategoryKey, option: OptionEntry) => {
@@ -87,7 +105,7 @@
 
     selections = {
       ...selections,
-      [key]: [...selections[key], option.id]
+      [key]: [...selections[key], option.id],
     };
     inputs = { ...inputs, [key]: "" };
   };
@@ -99,7 +117,7 @@
     }
 
     const match = getAvailableOptions(key).find(
-      (entry) => entry.label.toLowerCase() === rawValue.toLowerCase()
+      (entry) => entry.label.toLowerCase() === rawValue.toLowerCase(),
     );
 
     if (!match) {
@@ -112,7 +130,7 @@
   const removeSelection = (key: CategoryKey, id: number) => {
     selections = {
       ...selections,
-      [key]: selections[key].filter((item) => item !== id)
+      [key]: selections[key].filter((item) => item !== id),
     };
   };
 
@@ -129,11 +147,15 @@
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
-  $: readyForDetails = Boolean(selections.sourceLanguage && selections.targetLanguage);
+  $: readyForDetails = Boolean(
+    selections.sourceLanguage && selections.targetLanguage,
+  );
   $: canGenerate =
     readyForDetails &&
     categoryEntries.some(
-      (category) => selections[category.key].length > 0 || enabledCategories.has(category.key)
+      (category) =>
+        selections[category.key].length > 0 ||
+        enabledCategories.has(category.key),
     );
 </script>
 
@@ -142,8 +164,8 @@
     <p class="maker__eyebrow">Travel Cards</p>
     <h1 class="maker__title">Card Builder</h1>
     <p class="maker__subtitle">
-      Select the languages you speak and choose the items you need to communicate
-      quickly while traveling.
+      Select the languages you speak and choose the items you need to
+      communicate quickly while traveling.
     </p>
   </header>
 
@@ -153,12 +175,16 @@
         <span class="field__label">I speak...</span>
         <select
           class="field__control"
-          on:change={(event) => updateLanguage("sourceLanguage", event.currentTarget.value)}
+          on:change={(event) =>
+            updateLanguage("sourceLanguage", event.currentTarget.value)}
         >
           <option value="">Select language</option>
           {#each sourceOptions as language}
             {#if language}
-              <option value={language.id} selected={language.id === selections.sourceLanguage}>
+              <option
+                value={language.id}
+                selected={language.id === selections.sourceLanguage}
+              >
                 {language.label}
               </option>
             {/if}
@@ -170,11 +196,15 @@
         <span class="field__label">I'm traveling somewhere that speaks...</span>
         <select
           class="field__control"
-          on:change={(event) => updateLanguage("targetLanguage", event.currentTarget.value)}
+          on:change={(event) =>
+            updateLanguage("targetLanguage", event.currentTarget.value)}
         >
           <option value="">Select language</option>
           {#each targetOptions as language}
-            <option value={language.id} selected={language.id === selections.targetLanguage}>
+            <option
+              value={language.id}
+              selected={language.id === selections.targetLanguage}
+            >
               {language.label}
             </option>
           {/each}
@@ -191,7 +221,8 @@
               <input
                 type="checkbox"
                 checked={enabledCategories.has(categoryItem.key)}
-                on:change={(event) => handleCategoryToggle(categoryItem.key, event)}
+                on:change={(event) =>
+                  handleCategoryToggle(categoryItem.key, event)}
               />
               <span>{categoryItem.label}</span>
             </label>
@@ -202,7 +233,9 @@
       {#each categoryEntries as categoryItem}
         {#if enabledCategories.has(categoryItem.key)}
           <div class="maker__row">
-            <label class="row__label" for={`input-${categoryItem.key}`}>{categoryItem.label}</label>
+            <label class="row__label" for={`input-${categoryItem.key}`}
+              >{categoryItem.label}</label
+            >
             <div class="row__control">
               <input
                 id={`input-${categoryItem.key}`}
@@ -212,8 +245,10 @@
                 list={`list-${categoryItem.key}`}
                 bind:value={inputs[categoryItem.key]}
                 on:change={() => addSelection(categoryItem.key)}
-                on:focus={() => (showOptions = { ...showOptions, [categoryItem.key]: true })}
-                on:blur={() => (showOptions = { ...showOptions, [categoryItem.key]: false })}
+                on:focus={() =>
+                  (showOptions = { ...showOptions, [categoryItem.key]: true })}
+                on:blur={() =>
+                  (showOptions = { ...showOptions, [categoryItem.key]: false })}
               />
               {#if showOptions[categoryItem.key]}
                 <div class="row__options" role="listbox">
@@ -222,9 +257,9 @@
                       type="button"
                       class="row__option"
                       on:mousedown|preventDefault={() =>
-                        addSelectionFromOption(categoryItem.key, option)
-                      }
-                      on:click={() => addSelectionFromOption(categoryItem.key, option)}
+                        addSelectionFromOption(categoryItem.key, option)}
+                      on:click={() =>
+                        addSelectionFromOption(categoryItem.key, option)}
                     >
                       {option.label}
                     </button>
@@ -258,7 +293,12 @@
 </section>
 
 <div class="maker__footer">
-  <button class="maker__button" type="button" disabled={!canGenerate} on:click={handleGenerate}>
+  <button
+    class="maker__button"
+    type="button"
+    disabled={!canGenerate}
+    on:click={handleGenerate}
+  >
     Generate card
   </button>
 </div>
@@ -449,7 +489,12 @@
     position: sticky;
     bottom: 0;
     padding: 1.5rem;
-    background: linear-gradient(180deg, rgba(245, 242, 234, 0) 0%, rgba(245, 242, 234, 0.9) 40%, rgba(245, 242, 234, 1) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(245, 242, 234, 0) 0%,
+      rgba(245, 242, 234, 0.9) 40%,
+      rgba(245, 242, 234, 1) 100%
+    );
     display: flex;
     justify-content: center;
   }
