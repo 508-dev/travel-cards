@@ -1,16 +1,100 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+  import { getSelectionsFromSearch, defaultSelectionState } from "../lib/query";
+  import { languageDataById } from "../lib/data";
+  import type { CategoryKey, LanguageData, OptionEntry, SelectionState } from "../lib/types";
+
+  type CategoryData = { label: string; options: OptionEntry[] };
+  type CategoryMap = Record<CategoryKey, CategoryData>;
+  type LanguageDataShape = LanguageData & { categories: CategoryMap };
+  type CardSection = { key: CategoryKey; label: string; options: OptionEntry[] };
+
+  const categoryOrder: CategoryKey[] = [
+    "allergies",
+    "foodRestrictions",
+    "medicineAllergies",
+    "medicalConditions",
+    "phobias"
+  ];
+
+  let selections: SelectionState = { ...defaultSelectionState };
+  let sections: CardSection[] = [];
+
+  const syncSelections = () => {
+    selections = getSelectionsFromSearch(window.location.search);
+  };
+
+  onMount(() => {
+    syncSelections();
+    window.addEventListener("popstate", syncSelections);
+
+    return () => {
+      window.removeEventListener("popstate", syncSelections);
+    };
+  });
+
+  const getLanguageData = (
+    language: SelectionState["targetLanguage"]
+  ): LanguageDataShape | null => {
+    if (!language) {
+      return null;
+    }
+
+    return (languageDataById[language] as unknown as LanguageDataShape) ?? null;
+  };
+
+  const getSelectedOptions = (
+    data: LanguageDataShape,
+    key: CategoryKey,
+    selected: number[]
+  ): OptionEntry[] => {
+    const options = data.categories[key].options;
+    const selectedSet = new Set(selected);
+    return options.filter((option) => selectedSet.has(option.id));
+  };
+
+  $: languageData = getLanguageData(selections.targetLanguage);
+  $: sections = languageData
+    ? categoryOrder
+        .map((key) => ({
+          key,
+          label: languageData.categories[key].label,
+          options: getSelectedOptions(languageData, key, selections[key])
+        }))
+        .filter((section) => section.options.length > 0)
+    : [];
+</script>
+
 <section class="card-view">
   <header class="card-view__header">
     <p class="card-view__eyebrow">Travel Cards</p>
     <h1 class="card-view__title">Printable Card</h1>
     <p class="card-view__subtitle">
-      This view will render the translated card content based on URL query
-      parameters.
+      This view renders the card details from the URL query parameters.
     </p>
   </header>
 
   <div class="card-view__canvas">
     <div class="card-view__card">
-      <p class="card-view__card-title">Card output placeholder</p>
+      {#if !languageData}
+        <p class="card-view__card-title">Select a target language to render a card.</p>
+      {:else if sections.length === 0}
+        <p class="card-view__card-title">No selections were provided in the URL.</p>
+      {:else}
+        <div class="card-view__content">
+          <p class="card-view__language">{languageData.label}</p>
+          {#each sections as section (section.key)}
+            <div class="card-view__section">
+              <h2 class="card-view__section-title">{section.label}</h2>
+              <div class="card-view__chips">
+                {#each section.options as option (option.id)}
+                  <span class="card-view__chip">{option.label}</span>
+                {/each}
+              </div>
+            </div>
+          {/each}
+        </div>
+      {/if}
     </div>
   </div>
 </section>
