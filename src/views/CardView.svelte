@@ -66,7 +66,7 @@
 </script>
 
 <section class="card-view">
-  <header class="card-view__header">
+  <header class="card-view__header no-print">
     <p class="card-view__eyebrow">Travel Cards</p>
     <h1 class="card-view__title">Printable Card</h1>
     <p class="card-view__subtitle">
@@ -82,7 +82,6 @@
         <p class="card-view__card-title">No selections were provided in the URL.</p>
       {:else}
         <div class="card-view__content">
-          <p class="card-view__language">{languageData.label}</p>
           {#each sections as section (section.key)}
             <div class="card-view__section">
               <h2 class="card-view__section-title">{section.label}</h2>
@@ -146,11 +145,30 @@
     padding: 2rem;
     min-height: 220px;
     display: flex;
-    align-items: center;
   }
+  .card-view__section-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+  }
+.card-view__section {
+  margin-bottom: 1.5rem;
+}
+.card-view__chip {
+  border: 1px solid black;
+    border-radius: 3px;
+    margin: 6px 12px;
+    padding: 6px 8px;
+    font-size: 1.2rem;
 
+}
   .card-view__card-title {
     margin: 0;
     color: #7a6a50;
   }
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
 </style>

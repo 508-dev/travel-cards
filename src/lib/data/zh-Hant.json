@@ -3,35 +3,35 @@
   "label": "\u7e41\u9ad4\u4e2d\u6587",
   "categories": {
     "allergies": {
-      "label": "Food allergies",
+      "label": "食物過敏",
       "options": [
         { "id": 1, "label": "花生" },
         { "id": 2, "label": "貝類" }
       ]
     },
     "foodRestrictions": {
-      "label": "Food restrictions",
+      "label": "飲食限制",
       "options": [
         { "id": 10, "label": "素食" },
         { "id": 11, "label": "全素" }
       ]
     },
     "medicineAllergies": {
-      "label": "Medicine allergies",
+      "label": "藥物過敏",
       "options": [
         { "id": 20, "label": "青黴素" },
         { "id": 21, "label": "布洛芬" }
       ]
     },
     "medicalConditions": {
-      "label": "Medical conditions",
+      "label": "醫療狀況",
       "options": [
         { "id": 30, "label": "糖尿病" },
         { "id": 31, "label": "哮喘" }
       ]
     },
     "phobias": {
-      "label": "Phobias",
+      "label": "恐懼症",
       "options": [
         { "id": 40, "label": "針頭" },
         { "id": 41, "label": "密閉空間" }
