@@ -6,35 +6,58 @@
       "label": "Food allergies",
       "options": [
         { "id": 1, "label": "Peanuts" },
-        { "id": 2, "label": "Shellfish" }
+        { "id": 2, "label": "Shellfish" },
+        { "id": 3, "label": "Milk" },
+        { "id": 4, "label": "Eggs" },
+        { "id": 5, "label": "Wheat" },
+        { "id": 6, "label": "Soy" },
+        { "id": 7, "label": "Fish" }
       ]
     },
     "foodRestrictions": {
       "label": "Food restrictions",
       "options": [
         { "id": 10, "label": "Vegetarian" },
-        { "id": 11, "label": "Vegan" }
+        { "id": 11, "label": "Vegan" },
+        { "id": 12, "label": "Gluten-free" },
+        { "id": 13, "label": "Dairy-free" },
+        { "id": 14, "label": "Nut-free" },
+        { "id": 15, "label": "Halal" },
+        { "id": 16, "label": "Kosher" }
       ]
     },
     "medicineAllergies": {
       "label": "Medicine allergies",
       "options": [
         { "id": 20, "label": "Penicillin" },
-        { "id": 21, "label": "Ibuprofen" }
+        { "id": 21, "label": "Ibuprofen" },
+        { "id": 22, "label": "Aspirin" },
+        { "id": 23, "label": "Sulfa drugs" },
+        { "id": 24, "label": "Anesthesia" },
+        { "id": 25, "label": "Morphine" }
       ]
     },
     "medicalConditions": {
       "label": "Medical conditions",
       "options": [
         { "id": 30, "label": "Diabetes" },
-        { "id": 31, "label": "Asthma" }
+        { "id": 31, "label": "Asthma" },
+        { "id": 32, "label": "High blood pressure" },
+        { "id": 33, "label": "Heart condition" },
+        { "id": 34, "label": "Epilepsy" },
+        { "id": 35, "label": "Kidney disease" }
       ]
     },
     "phobias": {
       "label": "Phobias",
       "options": [
         { "id": 40, "label": "Needles" },
-        { "id": 41, "label": "Closed spaces" }
+        { "id": 41, "label": "Closed spaces" },
+        { "id": 42, "label": "Flying" },
+        { "id": 43, "label": "Heights" },
+        { "id": 44, "label": "Crowds" },
+        { "id": 45, "label": "Dogs" },
+        { "id": 46, "label": "Insects" }
       ]
     }
   }

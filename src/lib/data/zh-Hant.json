@@ -6,35 +6,58 @@
       "label": "食物過敏",
       "options": [
         { "id": 1, "label": "花生" },
-        { "id": 2, "label": "貝類" }
+        { "id": 2, "label": "貝類" },
+        { "id": 3, "label": "牛奶" },
+        { "id": 4, "label": "雞蛋" },
+        { "id": 5, "label": "小麥" },
+        { "id": 6, "label": "大豆" },
+        { "id": 7, "label": "魚" }
       ]
     },
     "foodRestrictions": {
       "label": "飲食限制",
       "options": [
         { "id": 10, "label": "素食" },
-        { "id": 11, "label": "全素" }
+        { "id": 11, "label": "全素" },
+        { "id": 12, "label": "無麩質" },
+        { "id": 13, "label": "無乳製品" },
+        { "id": 14, "label": "無堅果" },
+        { "id": 15, "label": "清真" },
+        { "id": 16, "label": "猶太潔食" }
       ]
     },
     "medicineAllergies": {
       "label": "藥物過敏",
       "options": [
         { "id": 20, "label": "青黴素" },
-        { "id": 21, "label": "布洛芬" }
+        { "id": 21, "label": "布洛芬" },
+        { "id": 22, "label": "阿司匹林" },
+        { "id": 23, "label": "磺胺類藥物" },
+        { "id": 24, "label": "麻醉" },
+        { "id": 25, "label": "嗎啡" }
       ]
     },
     "medicalConditions": {
       "label": "醫療狀況",
       "options": [
         { "id": 30, "label": "糖尿病" },
-        { "id": 31, "label": "哮喘" }
+        { "id": 31, "label": "哮喘" },
+        { "id": 32, "label": "高血壓" },
+        { "id": 33, "label": "心臟病" },
+        { "id": 34, "label": "癲癇" },
+        { "id": 35, "label": "腎臟疾病" }
       ]
     },
     "phobias": {
       "label": "恐懼症",
       "options": [
         { "id": 40, "label": "針頭" },
-        { "id": 41, "label": "密閉空間" }
+        { "id": 41, "label": "密閉空間" },
+        { "id": 42, "label": "飛行" },
+        { "id": 43, "label": "恐高" },
+        { "id": 44, "label": "人群" },
+        { "id": 45, "label": "狗" },
+        { "id": 46, "label": "昆蟲" }
       ]
     }
   }
