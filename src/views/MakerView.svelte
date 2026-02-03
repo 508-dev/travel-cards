@@ -229,6 +229,7 @@
           {/each}
         </div>
       </div>
+
       {#each categoryEntries as categoryItem}
         {#if enabledCategories.has(categoryItem.key)}
           {@const available = getAvailableOptions(categoryItem.key, selections)}
@@ -257,7 +258,7 @@
                   {#each available as option}
                     <button
                       type="button"
-                      class="row__option" 
+                      class="row__option"
                       on:mousedown|preventDefault={() =>
                         addSelectionFromOption(categoryItem.key, option)}
                     >
