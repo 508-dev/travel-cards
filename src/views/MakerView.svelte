@@ -85,9 +85,9 @@
     return englishData.categories[key].options;
   };
 
-  const getAvailableOptions = (key: CategoryKey): OptionEntry[] => {
-    const selected = new Set(selections[key]);
-    return getCategoryOptions(key).filter((entry) => !selected.has(entry.id));
+  const getAvailableOptions = (key: CategoryKey, currentSelections: typeof selections): OptionEntry[] => {
+      const selected = new Set(currentSelections[key]);
+      return getCategoryOptions(key).filter((entry) => !selected.has(entry.id));
   };
 
   const getLabel = (key: CategoryKey, id: number) => {
@@ -232,6 +232,8 @@
 
       {#each categoryEntries as categoryItem}
         {#if enabledCategories.has(categoryItem.key)}
+          {@const available = getAvailableOptions(categoryItem.key, selections)}
+          {@const isEmpty = available.length === 0}
           <div class="maker__row">
             <label class="row__label" for={`input-${categoryItem.key}`}
               >{categoryItem.label}</label
@@ -241,8 +243,9 @@
                 id={`input-${categoryItem.key}`}
                 class="row__input"
                 type="text"
-                placeholder="Type to search and select"
+                placeholder={isEmpty ? "No more options" : "Type to search and select"}
                 list={`list-${categoryItem.key}`}
+                disabled={isEmpty}
                 bind:value={inputs[categoryItem.key]}
                 on:change={() => addSelection(categoryItem.key)}
                 on:focus={() =>
@@ -250,16 +253,14 @@
                 on:blur={() =>
                   (showOptions = { ...showOptions, [categoryItem.key]: false })}
               />
-              {#if showOptions[categoryItem.key]}
+              {#if showOptions[categoryItem.key] && !isEmpty}
                 <div class="row__options" role="listbox">
-                  {#each getAvailableOptions(categoryItem.key) as option}
+                  {#each available as option}
                     <button
                       type="button"
                       class="row__option"
-                      on:mousedown|preventDefault={() =>
-                        addSelectionFromOption(categoryItem.key, option)}
-                      on:click={() =>
-                        addSelectionFromOption(categoryItem.key, option)}
+                      on:mousedown|preventDefault 
+                      on:click={() => addSelectionFromOption(categoryItem.key, option)}
                     >
                       {option.label}
                     </button>
