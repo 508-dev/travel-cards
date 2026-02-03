@@ -85,9 +85,9 @@
     return englishData.categories[key].options;
   };
 
-  const getAvailableOptions = (key: CategoryKey): OptionEntry[] => {
-    const selected = new Set(selections[key]);
-    return getCategoryOptions(key).filter((entry) => !selected.has(entry.id));
+  const getAvailableOptions = (key: CategoryKey, currentSelections: typeof selections): OptionEntry[] => {
+      const selected = new Set(currentSelections[key]);
+      return getCategoryOptions(key).filter((entry) => !selected.has(entry.id));
   };
 
   const getLabel = (key: CategoryKey, id: number) => {
@@ -259,8 +259,8 @@
                     <button
                       type="button"
                       class="row__option"
-                      on:mousedown|preventDefault={() =>
-                        addSelectionFromOption(categoryItem.key, option)}
+                      on:mousedown|preventDefault 
+                      on:click={() => addSelectionFromOption(categoryItem.key, option)}
                     >
                       {option.label}
                     </button>
