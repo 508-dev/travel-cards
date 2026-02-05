@@ -6,35 +6,58 @@
       "label": "Food allergies",
       "options": [
         { "id": 1, "label": "花生" },
-        { "id": 2, "label": "贝类" }
+        { "id": 2, "label": "贝类" },
+        { "id": 3, "label": "牛奶" },
+        { "id": 4, "label": "鸡蛋" },
+        { "id": 5, "label": "小麦" },
+        { "id": 6, "label": "大豆" },
+        { "id": 7, "label": "鱼" }
       ]
     },
     "foodRestrictions": {
       "label": "Food restrictions",
       "options": [
         { "id": 10, "label": "素食" },
-        { "id": 11, "label": "全素" }
+        { "id": 11, "label": "全素" },
+        { "id": 12, "label": "无麸质" },
+        { "id": 13, "label": "无乳制品" },
+        { "id": 14, "label": "无坚果" },
+        { "id": 15, "label": "清真" },
+        { "id": 16, "label": "犹太洁食" }
       ]
     },
     "medicineAllergies": {
       "label": "Medicine allergies",
       "options": [
         { "id": 20, "label": "青霉素" },
-        { "id": 21, "label": "布洛芬" }
+        { "id": 21, "label": "布洛芬" },
+        { "id": 22, "label": "阿司匹林" },
+        { "id": 23, "label": "磺胺类药物" },
+        { "id": 24, "label": "麻醉" },
+        { "id": 25, "label": "吗啡" }
       ]
     },
     "medicalConditions": {
       "label": "Medical conditions",
       "options": [
         { "id": 30, "label": "糖尿病" },
-        { "id": 31, "label": "哮喘" }
+        { "id": 31, "label": "哮喘" },
+        { "id": 32, "label": "高血压" },
+        { "id": 33, "label": "心脏病" },
+        { "id": 34, "label": "癫痫" },
+        { "id": 35, "label": "肾脏疾病" }
       ]
     },
     "phobias": {
       "label": "Phobias",
       "options": [
         { "id": 40, "label": "针头" },
-        { "id": 41, "label": "密闭空间" }
+        { "id": 41, "label": "密闭空间" },
+        { "id": 42, "label": "飞行" },
+        { "id": 43, "label": "恐高" },
+        { "id": 44, "label": "人群" },
+        { "id": 45, "label": "狗" },
+        { "id": 46, "label": "昆虫" }
       ]
     }
   }

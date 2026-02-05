@@ -85,8 +85,11 @@
     return englishData.categories[key].options;
   };
 
-  const getAvailableOptions = (key: CategoryKey): OptionEntry[] => {
-    const selected = new Set(selections[key]);
+  const getAvailableOptions = (
+    key: CategoryKey,
+    selectedItems: number[],
+  ): OptionEntry[] => {
+    const selected = new Set(selectedItems);
     return getCategoryOptions(key).filter((entry) => !selected.has(entry.id));
   };
 
@@ -116,7 +119,7 @@
       return;
     }
 
-    const match = getAvailableOptions(key).find(
+    const match = getAvailableOptions(key, selections[key]).find(
       (entry) => entry.label.toLowerCase() === rawValue.toLowerCase(),
     );
 
@@ -252,7 +255,10 @@
               />
               {#if showOptions[categoryItem.key]}
                 <div class="row__options" role="listbox">
-                  {#each getAvailableOptions(categoryItem.key) as option}
+                  {#each getAvailableOptions(
+                    categoryItem.key,
+                    selections[categoryItem.key],
+                  ) as option (option.id)}
                     <button
                       type="button"
                       class="row__option"

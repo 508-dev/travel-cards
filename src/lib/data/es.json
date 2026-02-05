@@ -6,35 +6,58 @@
       "label": "Food allergies",
       "options": [
         { "id": 1, "label": "Cacahuetes" },
-        { "id": 2, "label": "Mariscos" }
+        { "id": 2, "label": "Mariscos" },
+        { "id": 3, "label": "Leche" },
+        { "id": 4, "label": "Huevos" },
+        { "id": 5, "label": "Trigo" },
+        { "id": 6, "label": "Soja" },
+        { "id": 7, "label": "Pescado" }
       ]
     },
     "foodRestrictions": {
       "label": "Food restrictions",
       "options": [
         { "id": 10, "label": "Vegetariano" },
-        { "id": 11, "label": "Vegano" }
+        { "id": 11, "label": "Vegano" },
+        { "id": 12, "label": "Sin gluten" },
+        { "id": 13, "label": "Sin lácteos" },
+        { "id": 14, "label": "Sin frutos secos" },
+        { "id": 15, "label": "Halal" },
+        { "id": 16, "label": "Kosher" }
       ]
     },
     "medicineAllergies": {
       "label": "Medicine allergies",
       "options": [
         { "id": 20, "label": "Penicilina" },
-        { "id": 21, "label": "Ibuprofeno" }
+        { "id": 21, "label": "Ibuprofeno" },
+        { "id": 22, "label": "Aspirina" },
+        { "id": 23, "label": "Sulfonamidas" },
+        { "id": 24, "label": "Anestesia" },
+        { "id": 25, "label": "Morfina" }
       ]
     },
     "medicalConditions": {
       "label": "Medical conditions",
       "options": [
         { "id": 30, "label": "Diabetes" },
-        { "id": 31, "label": "Asma" }
+        { "id": 31, "label": "Asma" },
+        { "id": 32, "label": "Hipertensión" },
+        { "id": 33, "label": "Enfermedad cardíaca" },
+        { "id": 34, "label": "Epilepsia" },
+        { "id": 35, "label": "Enfermedad renal" }
       ]
     },
     "phobias": {
       "label": "Phobias",
       "options": [
         { "id": 40, "label": "Agujas" },
-        { "id": 41, "label": "Espacios cerrados" }
+        { "id": 41, "label": "Espacios cerrados" },
+        { "id": 42, "label": "Volar" },
+        { "id": 43, "label": "Alturas" },
+        { "id": 44, "label": "Multitudes" },
+        { "id": 45, "label": "Perros" },
+        { "id": 46, "label": "Insectos" }
       ]
     }
   }
