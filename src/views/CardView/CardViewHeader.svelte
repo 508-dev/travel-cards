@@ -14,8 +14,8 @@
     <PrintButton />
     <InfoBubble>
       <p>
-        <strong>
-          Note: The card will attempt to print as two pages. Please print double
+      <strong>
+        Note: The card will attempt to print as two pages. Please print double
           sided, portrait mode, so that the english card will print on the opposite
           side of the local language card.
         </strong>
