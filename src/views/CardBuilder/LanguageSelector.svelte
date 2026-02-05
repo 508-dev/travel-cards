@@ -6,7 +6,7 @@
   export let options: { id: LanguageCode; label: string }[];
   export let value: LanguageCode | null = null;
 
-  const dispatch = createEventDispatcher<{ change: string }>();
+   const dispatch = createEventDispatcher<{ change: string }>();
 
   const handleChange = (event: Event) => {
     const target = event.currentTarget as HTMLSelectElement;

@@ -13,7 +13,7 @@
   };
 </script>
 
-<button class="print-button" on:click={handlePrint}>
+<button type="button" class="print-button" on:click={handlePrint}>
   <span aria-hidden="true">⎙</span> Print Cards
 </button>
 
