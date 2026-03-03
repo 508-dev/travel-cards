@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import MakerView from "./views/MakerView.svelte";
-  import CardView from "./views/CardView.svelte";
+  import CardBuilder from "./views/CardBuilder/CardBuilder.svelte";
+  import CardView from "./views/CardView/CardView.svelte";
   import { getRouteFromPath, type AppRoute } from "./lib/routes";
 
   const initialPath =
@@ -25,5 +25,5 @@
 {#if route === "card"}
   <CardView />
 {:else}
-  <MakerView />
+  <CardBuilder />
 {/if}
