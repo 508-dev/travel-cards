@@ -1,0 +1,84 @@
+{
+  "id": "ja",
+  "label": "日本語",
+  "categories": {
+    "allergies": {
+      "label": "食物アレルギー",
+      "options": [
+        { "id": 1, "label": "ピーナッツ" },
+        { "id": 2, "label": "貝類" },
+        { "id": 3, "label": "牛乳" },
+        { "id": 4, "label": "卵" },
+        { "id": 5, "label": "小麦" },
+        { "id": 6, "label": "大豆" },
+        { "id": 7, "label": "魚" },
+        { "id": 8, "label": "ヘーゼルナッツ" },
+        { "id": 9, "label": "ピスタチオ" },
+        { "id": 50, "label": "アボカド" },
+        { "id": 51, "label": "メロン" },
+        { "id": 52, "label": "ごま" },
+        { "id": 53, "label": "ナッツ類" },
+        { "id": 54, "label": "セロリ" },
+        { "id": 55, "label": "からし" },
+        { "id": 56, "label": "ルーピン" }
+      ]
+    },
+    "foodRestrictions": {
+      "label": "食事制限",
+      "options": [
+        { "id": 10, "label": "ベジタリアン" },
+        { "id": 11, "label": "ヴィーガン" },
+        { "id": 12, "label": "グルテンフリー" },
+        { "id": 13, "label": "乳製品不使用" },
+        { "id": 14, "label": "ナッツ不使用" },
+        { "id": 15, "label": "ハラール" },
+        { "id": 16, "label": "コーシャ" }
+      ]
+    },
+    "medicineAllergies": {
+      "label": "薬物アレルギー",
+      "options": [
+        { "id": 20, "label": "ペニシリン" },
+        { "id": 21, "label": "イブプロフェン" },
+        { "id": 22, "label": "アスピリン" },
+        { "id": 23, "label": "サルファ剤" },
+        { "id": 24, "label": "麻酔" },
+        { "id": 25, "label": "モルヒネ" },
+        { "id": 26, "label": "ラテックス" },
+        { "id": 27, "label": "猫" },
+        { "id": 28, "label": "犬" }
+      ]
+    },
+    "medicalConditions": {
+      "label": "病状",
+      "options": [
+        { "id": 30, "label": "糖尿病" },
+        { "id": 31, "label": "喘息" },
+        { "id": 32, "label": "高血圧" },
+        { "id": 33, "label": "心臓病" },
+        { "id": 34, "label": "てんかん" },
+        { "id": 35, "label": "腎臓病" },
+        { "id": 36, "label": "免疫疾患" },
+        { "id": 37, "label": "HIV" },
+        { "id": 38, "label": "がん（現在）" },
+        { "id": 39, "label": "がん（既往）" },
+        { "id": 57, "label": "鎌状赤血球貧血" }
+      ]
+    },
+    "phobias": {
+      "label": "恐怖症",
+      "options": [
+        { "id": 40, "label": "注射針" },
+        { "id": 41, "label": "閉所" },
+        { "id": 42, "label": "飛行" },
+        { "id": 43, "label": "高所" },
+        { "id": 44, "label": "人混み" },
+        { "id": 45, "label": "犬" },
+        { "id": 46, "label": "虫" },
+        { "id": 47, "label": "鳥" },
+        { "id": 48, "label": "広場恐怖症" },
+        { "id": 49, "label": "潔癖症" }
+      ]
+    }
+  }
+}

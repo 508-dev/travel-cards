@@ -10,6 +10,10 @@ const englishData = languageDataById.en as unknown as {
 export const languageOptions: LanguageSummary[] = [
   { id: "en", label: "English" },
   { id: "es", label: "Spanish" },
+  { id: "fr", label: "French" },
+  { id: "it", label: "Italian" },
+  { id: "ja", label: "Japanese" },
+  { id: "th", label: "Thai" },
   { id: "zh-Hant", label: "Mandarin Chinese (Traditional)" },
   { id: "zh-Hans", label: "Mandarin Chinese (Simplified)" },
 ];

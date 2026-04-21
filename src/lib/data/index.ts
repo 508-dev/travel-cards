@@ -1,6 +1,10 @@
 import languages from "./languages.json";
 import en from "./en.json";
 import es from "./es.json";
+import fr from "./fr.json";
+import it from "./it.json";
+import ja from "./ja.json";
+import th from "./th.json";
 import zhHans from "./zh-Hans.json";
 import zhHant from "./zh-Hant.json";
 import type { LanguageData, LanguageSummary, LanguageCode } from "../types";
@@ -12,6 +16,10 @@ export const languageList: LanguageSummary[] = languageListData;
 export const languageDataById: Record<LanguageCode, LanguageData> = {
   en: en as LanguageData,
   es: es as LanguageData,
+  fr: fr as LanguageData,
+  it: it as LanguageData,
+  ja: ja as LanguageData,
+  th: th as LanguageData,
   "zh-Hant": zhHant as LanguageData,
   "zh-Hans": zhHans as LanguageData,
 };
