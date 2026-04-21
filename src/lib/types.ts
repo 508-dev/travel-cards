@@ -1,4 +1,4 @@
-export type LanguageCode = "en" | "es" | "zh-Hant" | "zh-Hans";
+export type LanguageCode = "en" | "es" | "fr" | "it" | "ja" | "th" | "zh-Hant" | "zh-Hans";
 
 export type CategoryKey =
   | "allergies"

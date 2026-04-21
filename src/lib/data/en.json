@@ -11,7 +11,16 @@
         { "id": 4, "label": "Eggs" },
         { "id": 5, "label": "Wheat" },
         { "id": 6, "label": "Soy" },
-        { "id": 7, "label": "Fish" }
+        { "id": 7, "label": "Fish" },
+        { "id": 8, "label": "Hazelnuts" },
+        { "id": 9, "label": "Pistachios" },
+        { "id": 50, "label": "Avocados" },
+        { "id": 51, "label": "Melon" },
+        { "id": 52, "label": "Sesame" },
+        { "id": 53, "label": "Tree Nuts" },
+        { "id": 54, "label": "Celery" },
+        { "id": 55, "label": "Mustard" },
+        { "id": 56, "label": "Lupin" }
       ]
     },
     "foodRestrictions": {
@@ -34,7 +43,10 @@
         { "id": 22, "label": "Aspirin" },
         { "id": 23, "label": "Sulfa drugs" },
         { "id": 24, "label": "Anesthesia" },
-        { "id": 25, "label": "Morphine" }
+        { "id": 25, "label": "Morphine" },
+        { "id": 26, "label": "Latex" },
+        { "id": 27, "label": "Cat" },
+        { "id": 28, "label": "Dog" }
       ]
     },
     "medicalConditions": {
@@ -45,7 +57,12 @@
         { "id": 32, "label": "High blood pressure" },
         { "id": 33, "label": "Heart condition" },
         { "id": 34, "label": "Epilepsy" },
-        { "id": 35, "label": "Kidney disease" }
+        { "id": 35, "label": "Kidney disease" },
+        { "id": 36, "label": "Immune Disorder" },
+        { "id": 37, "label": "HIV" },
+        { "id": 38, "label": "Cancer (currently)" },
+        { "id": 39, "label": "Cancer (previously)" },
+        { "id": 57, "label": "Sickle Cell Anemia" }
       ]
     },
     "phobias": {
@@ -57,7 +74,10 @@
         { "id": 43, "label": "Heights" },
         { "id": 44, "label": "Crowds" },
         { "id": 45, "label": "Dogs" },
-        { "id": 46, "label": "Insects" }
+        { "id": 46, "label": "Insects" },
+        { "id": 47, "label": "Birds" },
+        { "id": 48, "label": "Agoraphobia" },
+        { "id": 49, "label": "Mysophobia" }
       ]
     }
   }

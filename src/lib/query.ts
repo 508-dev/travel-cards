@@ -14,6 +14,10 @@ const parseLanguage = (value: string | null): LanguageCode | null => {
   if (
     value === "en" ||
     value === "es" ||
+    value === "fr" ||
+    value === "it" ||
+    value === "ja" ||
+    value === "th" ||
     value === "zh-Hant" ||
     value === "zh-Hans"
   ) {

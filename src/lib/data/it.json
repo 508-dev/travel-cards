@@ -1,0 +1,84 @@
+{
+  "id": "it",
+  "label": "Italiano",
+  "categories": {
+    "allergies": {
+      "label": "Allergie alimentari",
+      "options": [
+        { "id": 1, "label": "Arachidi" },
+        { "id": 2, "label": "Crostacei" },
+        { "id": 3, "label": "Latte" },
+        { "id": 4, "label": "Uova" },
+        { "id": 5, "label": "Grano" },
+        { "id": 6, "label": "Soia" },
+        { "id": 7, "label": "Pesce" },
+        { "id": 8, "label": "Nocciole" },
+        { "id": 9, "label": "Pistacchi" },
+        { "id": 50, "label": "Avocado" },
+        { "id": 51, "label": "Melone" },
+        { "id": 52, "label": "Sesamo" },
+        { "id": 53, "label": "Frutta a guscio" },
+        { "id": 54, "label": "Sedano" },
+        { "id": 55, "label": "Senape" },
+        { "id": 56, "label": "Lupino" }
+      ]
+    },
+    "foodRestrictions": {
+      "label": "Restrizioni alimentari",
+      "options": [
+        { "id": 10, "label": "Vegetariano" },
+        { "id": 11, "label": "Vegano" },
+        { "id": 12, "label": "Senza glutine" },
+        { "id": 13, "label": "Senza latticini" },
+        { "id": 14, "label": "Senza frutta a guscio" },
+        { "id": 15, "label": "Halal" },
+        { "id": 16, "label": "Kosher" }
+      ]
+    },
+    "medicineAllergies": {
+      "label": "Allergie ai farmaci",
+      "options": [
+        { "id": 20, "label": "Penicillina" },
+        { "id": 21, "label": "Ibuprofene" },
+        { "id": 22, "label": "Aspirina" },
+        { "id": 23, "label": "Sulfamidici" },
+        { "id": 24, "label": "Anestesia" },
+        { "id": 25, "label": "Morfina" },
+        { "id": 26, "label": "Lattice" },
+        { "id": 27, "label": "Gatto" },
+        { "id": 28, "label": "Cane" }
+      ]
+    },
+    "medicalConditions": {
+      "label": "Condizioni mediche",
+      "options": [
+        { "id": 30, "label": "Diabete" },
+        { "id": 31, "label": "Asma" },
+        { "id": 32, "label": "Pressione alta" },
+        { "id": 33, "label": "Malattia cardiaca" },
+        { "id": 34, "label": "Epilessia" },
+        { "id": 35, "label": "Malattia renale" },
+        { "id": 36, "label": "Disturbo immunitario" },
+        { "id": 37, "label": "HIV" },
+        { "id": 38, "label": "Cancro (attuale)" },
+        { "id": 39, "label": "Cancro (pregresso)" },
+        { "id": 57, "label": "Anemia falciforme" }
+      ]
+    },
+    "phobias": {
+      "label": "Fobie",
+      "options": [
+        { "id": 40, "label": "Aghi" },
+        { "id": 41, "label": "Spazi chiusi" },
+        { "id": 42, "label": "Volare" },
+        { "id": 43, "label": "Altezze" },
+        { "id": 44, "label": "Folla" },
+        { "id": 45, "label": "Cani" },
+        { "id": 46, "label": "Insetti" },
+        { "id": 47, "label": "Uccelli" },
+        { "id": 48, "label": "Agorafobia" },
+        { "id": 49, "label": "Misofobia" }
+      ]
+    }
+  }
+}

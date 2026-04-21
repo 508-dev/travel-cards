@@ -1,0 +1,84 @@
+{
+  "id": "fr",
+  "label": "Français",
+  "categories": {
+    "allergies": {
+      "label": "Allergies alimentaires",
+      "options": [
+        { "id": 1, "label": "Cacahuètes" },
+        { "id": 2, "label": "Fruits de mer" },
+        { "id": 3, "label": "Lait" },
+        { "id": 4, "label": "Œufs" },
+        { "id": 5, "label": "Blé" },
+        { "id": 6, "label": "Soja" },
+        { "id": 7, "label": "Poisson" },
+        { "id": 8, "label": "Noisettes" },
+        { "id": 9, "label": "Pistaches" },
+        { "id": 50, "label": "Avocats" },
+        { "id": 51, "label": "Melon" },
+        { "id": 52, "label": "Sésame" },
+        { "id": 53, "label": "Fruits à coque" },
+        { "id": 54, "label": "Céleri" },
+        { "id": 55, "label": "Moutarde" },
+        { "id": 56, "label": "Lupin" }
+      ]
+    },
+    "foodRestrictions": {
+      "label": "Restrictions alimentaires",
+      "options": [
+        { "id": 10, "label": "Végétarien" },
+        { "id": 11, "label": "Végétalien" },
+        { "id": 12, "label": "Sans gluten" },
+        { "id": 13, "label": "Sans produits laitiers" },
+        { "id": 14, "label": "Sans fruits à coque" },
+        { "id": 15, "label": "Halal" },
+        { "id": 16, "label": "Casher" }
+      ]
+    },
+    "medicineAllergies": {
+      "label": "Allergies médicamenteuses",
+      "options": [
+        { "id": 20, "label": "Pénicilline" },
+        { "id": 21, "label": "Ibuprofène" },
+        { "id": 22, "label": "Aspirine" },
+        { "id": 23, "label": "Sulfamides" },
+        { "id": 24, "label": "Anesthésie" },
+        { "id": 25, "label": "Morphine" },
+        { "id": 26, "label": "Latex" },
+        { "id": 27, "label": "Chat" },
+        { "id": 28, "label": "Chien" }
+      ]
+    },
+    "medicalConditions": {
+      "label": "Conditions médicales",
+      "options": [
+        { "id": 30, "label": "Diabète" },
+        { "id": 31, "label": "Asthme" },
+        { "id": 32, "label": "Hypertension artérielle" },
+        { "id": 33, "label": "Maladie cardiaque" },
+        { "id": 34, "label": "Épilepsie" },
+        { "id": 35, "label": "Maladie rénale" },
+        { "id": 36, "label": "Trouble immunitaire" },
+        { "id": 37, "label": "VIH" },
+        { "id": 38, "label": "Cancer (en cours)" },
+        { "id": 39, "label": "Cancer (antérieur)" },
+        { "id": 57, "label": "Drépanocytose" }
+      ]
+    },
+    "phobias": {
+      "label": "Phobies",
+      "options": [
+        { "id": 40, "label": "Aiguilles" },
+        { "id": 41, "label": "Espaces confinés" },
+        { "id": 42, "label": "Avion" },
+        { "id": 43, "label": "Hauteurs" },
+        { "id": 44, "label": "Foules" },
+        { "id": 45, "label": "Chiens" },
+        { "id": 46, "label": "Insectes" },
+        { "id": 47, "label": "Oiseaux" },
+        { "id": 48, "label": "Agoraphobie" },
+        { "id": 49, "label": "Mysophobie" }
+      ]
+    }
+  }
+}
