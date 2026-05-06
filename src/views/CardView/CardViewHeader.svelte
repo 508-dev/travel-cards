@@ -5,6 +5,7 @@
 
 <header class="card-view__header no-print">
   <p class="card-view__eyebrow">Travel Cards</p>
+  <p class="maker__callout"><a href="https://github.com/508-dev/travel-cards">Code</a> by <a href="https://508.dev">508.dev</a></p>
   <h1 class="card-view__title">Printable Card</h1>
   <p class="card-view__subtitle">
     This view renders the card details from the URL query parameters.
@@ -37,7 +38,13 @@
     text-transform: uppercase;
     color: #7a6a50;
   }
-
+   .maker__callout {
+    margin: 0;
+    font-size: 0.80rem;
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+    color: #7a6a50;
+   }
   .card-view__title {
     margin: 0;
     font-size: clamp(2rem, 4vw, 3.25rem);
